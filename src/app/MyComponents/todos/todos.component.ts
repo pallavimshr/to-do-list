@@ -8,16 +8,20 @@ import {Todo } from "../../Todo";
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  // localItem: string;
+   
+   readonly item= localStorage.getItem("todos");
+   localItem= this.item? this.item:null;
+  
    todos: Todo[];
   constructor(){
+    
    // this.localItem =localStorage.getItem("todos");
-   // if(this.localItem == null){
+    if(this.localItem == null){
          this.todos=[]; 
-   // }
-   // else{
-      //this.todos= JSON.parse(this.localItem);
-   // }
+    }
+   else{
+      this.todos= JSON.parse(this.localItem);
+    }
  }
   ngOnInit(): void {
     
